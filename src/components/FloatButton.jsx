@@ -10,27 +10,36 @@ export default function FloatButton() {
           <p className="float-links-title">I&apos;m here for you</p>
           <p className="float-links-subtitle">How can you contact me.</p>
         </div>
-        <a href="tel:+85512706092" className="float-link-item">
+        <a href="tel:+85517706092" className="float-link-item">
           <div className="float-link-icon phone">
             <i className="fas fa-phone-alt" />
           </div>
           <div>
             <div className="float-link-label">Phone</div>
-            <div className="float-link-desc">+85512706092</div>
+            <div className="float-link-desc">+85517706092</div>
           </div>
         </a>
-        <a href="https://wa.me/+85512706092" target="_blank" rel="noopener noreferrer" className="float-link-item">
+        <a href="https://wa.me/+85517706092" target="_blank" rel="noopener noreferrer" className="float-link-item">
           <div className="float-link-icon whatsapp">
             <i className="fab fa-whatsapp" />
           </div>
           <div>
-            <div className="float-link-label">Customer service</div>
+            <div className="float-link-label">WhatsApp</div>
             <div className="float-link-desc">Always online</div>
+          </div>
+        </a>
+        <a href="https://t.me/+85517706092" target="_blank" rel="noopener noreferrer" className="float-link-item">
+          <div className="float-link-icon telegram">
+            <i className="fab fa-telegram-plane" />
+          </div>
+          <div>
+            <div className="float-link-label">Telegram</div>
+            <div className="float-link-desc">+85517706092</div>
           </div>
         </a>
       </div>
       <button
-        className="float-toggle"
+        className={`float-toggle ${open ? 'is-open' : 'is-pulsing'}`}
         onClick={() => setOpen((o) => !o)}
         aria-label="Contact options"
       >

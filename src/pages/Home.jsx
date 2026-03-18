@@ -190,25 +190,15 @@ export default function Home() {
         style={{ backgroundImage: `url(${BASE}wp-content/uploads/2025/04/dr-ouk-reaksmey.jpg)` }}
       >
         <div className="container">
-          <div className="hero-content fade-up visible">
+          <div className="hero-content hero-content-animated">
             <h1>
-              UROLOGY <br />
-              <span className="mark"><span>Specialist.</span></span>
+              <span className="hero-line hero-line-top">UROLOGY</span> <br />
+              <span className="mark hero-line hero-line-mark"><span>Specialist.</span></span>
             </h1>
-            <p>
-              Providing Expert Care for Urinary
-              <br />
-              Reproductive Health
+            <p className="hero-copy">
+              <span className="hero-copy-line">Providing Expert Care for Urinary</span>
+              <span className="hero-copy-line">Reproductive Health</span>
             </p>
-            <a
-              className="video-btn"
-              href="https://vimeo.com/367945766?autoplay=1&loop=0&controls=0&muted=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Watch video"
-            >
-              <i className="fas fa-play" />
-            </a>
           </div>
         </div>
       </section>

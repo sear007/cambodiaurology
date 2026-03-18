@@ -44,9 +44,9 @@ export default function Navbar({ transparent = false }) {
               ))}
             </div>
 
-            <a href="tel:+85512706092" className="nav-phone">
+            <a href="tel:+85517706092" className="nav-phone">
               <i className="fas fa-phone-alt" style={{ fontSize: '0.75rem' }} />
-              +855 12 706 092
+              +855 17 706 092
             </a>
 
             <button
@@ -66,9 +66,9 @@ export default function Navbar({ transparent = false }) {
         {links.map(l => (
           <a key={l.href} href={l.href} onClick={() => setDrawerOpen(false)}>{l.label}</a>
         ))}
-        <a href="tel:+85512706092" style={{ fontSize: '1rem', color: 'var(--p1)' }}>
+        <a href="tel:+85517706092" style={{ fontSize: '1rem', color: 'var(--p1)' }}>
           <i className="fas fa-phone-alt" style={{ marginRight: 8 }} />
-          +855 12 706 092
+          +855 17 706 092
         </a>
       </div>
     </>

@@ -11,7 +11,6 @@ const BASE = import.meta.env.BASE_URL
 export default function PublicationDetail() {
   const { slug } = useParams()
   const { publications, loading } = usePublications()
-  const navigate = useNavigate()
   const [imgError, setImgError] = useState(false)
 
   const pub = publications.find(p => p.slug === slug)
@@ -57,6 +56,10 @@ export default function PublicationDetail() {
     .filter(p => p.cat_id === pub.cat_id && p.id !== pub.id)
     .slice(0, 3)
 
+  const goBackToPublications = () => {
+    window.location.href = `${BASE}#news`
+  }
+
   return (
     <>
       <Helmet>
@@ -74,7 +77,7 @@ export default function PublicationDetail() {
       {/* Hero strip */}
       <div className="pub-detail-hero">
         <div className="container">
-          <button className="back-btn" onClick={() => navigate(-1)}>
+          <button className="back-btn" onClick={goBackToPublications}>
             <i className="fas fa-arrow-left" />
             Back
           </button>

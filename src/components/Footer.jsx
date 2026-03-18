@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="contact-grid">
             <div className="contact-col">
               <h6>Phone:</h6>
-              <a href="tel:+85512706092">+85512706092</a>
+              <a href="tel:+85517706092">+85517706092</a>
             </div>
             <div className="contact-col">
               <h6>Email:</h6>

@@ -236,13 +236,14 @@ h6, .h6 { font-family: var(--sf); font-size: 0.75rem; font-weight: 700; letter-s
   color: #fff;
   font-size: clamp(2.8rem, 6vw, 4.8rem);
   margin-bottom: 1rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
 }
 .hero-content h1 .mark {
   position: relative;
   display: inline-block;
   padding: 0 0.2em;
   color: #fff;
-  background: var(--heading-dark);
+  background: rgba(29, 29, 29, 0.72);
   transform: rotate(-0.5deg);
 }
 .hero-content h1 .mark::before {
@@ -252,45 +253,69 @@ h6, .h6 { font-family: var(--sf); font-size: 0.75rem; font-weight: 700; letter-s
   right: 0;
   bottom: 0.3rem;
   left: 0;
-  background: var(--heading-dark);
 }
 .hero-content h1 .mark span {
   position: relative;
 }
 .hero-content p {
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.96);
   font-size: 1.125rem;
   line-height: 1.9;
   margin-bottom: 2rem;
   max-width: 480px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
 }
-.video-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 5.15rem;
-  height: 5.15rem;
-  border-radius: 50%;
-  background: var(--p1);
-  color: #fff;
-  font-size: 1.5rem;
-  border: 1px solid var(--p1);
+.hero-content-animated .hero-line,
+.hero-content-animated .hero-copy-line {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
-.video-btn:hover {
-  background: transparent;
-  color: var(--p1);
+.hero-content-animated .hero-line-top {
+  display: inline-block;
+  animation-name: heroRiseIn;
+  animation-duration: 0.7s;
+  animation-delay: 0.08s;
 }
-
+.hero-content-animated .hero-line-mark {
+  animation-name: heroMarkIn;
+  animation-duration: 0.72s;
+  animation-delay: 0.28s;
+  transform-origin: left center;
+}
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.hero-copy-line {
+  display: block;
+}
+.hero-content-animated .hero-copy-line:nth-child(1) {
+  animation-name: heroCopyIn;
+  animation-duration: 0.65s;
+  animation-delay: 0.5s;
+}
+.hero-content-animated .hero-copy-line:nth-child(2) {
+  animation-name: heroCopyIn;
+  animation-duration: 0.65s;
+  animation-delay: 0.62s;
+}
 @media (max-width: 767px) {
   .hero-masthead {
     min-height: 100svh;
-    background-position: 72% top;
+    background-position: 50% top;
     padding: 7rem 0 4rem;
   }
 
   .hero-content {
     padding-top: 140px;
-    max-width: 320px;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-content h1 {
@@ -299,7 +324,12 @@ h6, .h6 { font-family: var(--sf); font-size: 0.75rem; font-weight: 700; letter-s
 
   .hero-content p {
     font-size: 1rem;
-    max-width: 300px;
+    max-width: 320px;
+    line-height: 1.65;
+  }
+
+  .hero-copy {
+    align-items: center;
   }
 
   .float-btn-wrap {
@@ -935,7 +965,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   flex-shrink: 0;
 }
 .float-link-icon.phone { background: #324a6d; }
-.float-link-icon.whatsapp { background: #324a6d; }
+.float-link-icon.whatsapp { background: #25d366; }
+.float-link-icon.telegram { background: #229ed9; }
 .float-link-label {
   font-family: var(--sf);
   font-size: 0.8rem;
@@ -960,9 +991,24 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   justify-content: center;
   font-size: 1.3rem;
   box-shadow: 0 4px 20px rgba(16,136,161,0.4);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
 }
 .float-toggle:hover { transform: scale(1.1); }
+.float-toggle.is-open {
+  animation: none;
+}
+.float-toggle.is-pulsing {
+  animation: chatPulse 1.8s ease-in-out infinite;
+}
+.float-toggle.is-pulsing::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(16,136,161,0.35);
+  animation: chatRing 1.8s ease-out infinite;
+}
 
 .fade-up {
   opacity: 0;
@@ -989,4 +1035,67 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .not-found p {
   color: var(--body-text);
   max-width: 400px;
+}
+
+@keyframes chatPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(16,136,161,0.35);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(16,136,161,0.5);
+  }
+}
+
+@keyframes chatRing {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes heroRiseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroMarkIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92) rotate(-2deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1.02) rotate(-0.35deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(-0.5deg);
+  }
+}
+
+@keyframes heroCopyIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
