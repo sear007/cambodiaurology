@@ -1,0 +1,44 @@
+
+---Downloaded files---
+The import files for: Demo Import were successfully downloaded!
+Initial max execution time = 360
+Files info:
+Site URL = https://cambodiaurologycenter.com
+Data file = /home/u356989591/domains/cambodiaurologycenter.com/public_html/wp-content/themes/richard/inc/demo/demo-content.xml
+Widget file = /home/u356989591/domains/cambodiaurologycenter.com/public_html/wp-content/themes/richard/inc/demo/widgets.wie
+Customizer file = /home/u356989591/domains/cambodiaurologycenter.com/public_html/wp-content/themes/richard/inc/demo/customizer.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Blog Sidebar : 
+
+Text - About Me - Imported
+Search - No Title - Imported
+Recent Posts - No Title - Imported
+Recent Comments - No Title - Imported
+Meta - No Title - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---ocdi/after_import---
+
