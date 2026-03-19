@@ -3,10 +3,10 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-function wpUploadsPlugin() {
+function uploadsPlugin() {
   const projectRoot = process.cwd()
   const uploadsDir = path.resolve(projectRoot, 'uploads')
-  const uploadsPublicPath = '/wp-content/uploads/'
+  const uploadsPublicPath = '/uploads/'
 
   const mimeTypes = {
     '.avif': 'image/avif',
@@ -25,17 +25,16 @@ function wpUploadsPlugin() {
     '.xml': 'application/xml; charset=utf-8',
   }
 
-  const getFilePathFromUrl = (url) => {
+  function getFilePathFromUrl(url) {
     if (!url) return null
 
     const cleanUrl = url.split('?')[0].split('#')[0]
-    const publicPathIndex = cleanUrl.indexOf(uploadsPublicPath)
 
-    if (publicPathIndex === -1) {
+    if (!cleanUrl.startsWith(uploadsPublicPath)) {
       return null
     }
 
-    const relativePath = cleanUrl.slice(publicPathIndex + uploadsPublicPath.length)
+    const relativePath = cleanUrl.slice(uploadsPublicPath.length)
 
     if (!relativePath) {
       return null
@@ -52,7 +51,8 @@ function wpUploadsPlugin() {
   }
 
   return {
-    name: 'wp-uploads-from-root',
+    name: 'uploads-from-root',
+
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const filePath = getFilePathFromUrl(req.url)
@@ -70,24 +70,26 @@ function wpUploadsPlugin() {
           res.statusCode = 500
           res.end('Unable to read upload asset.')
         })
+
         stream.pipe(res)
       })
     },
+
     closeBundle() {
       if (!fs.existsSync(uploadsDir)) {
         return
       }
 
-      const outDir = path.resolve(projectRoot, 'dist', 'wp-content', 'uploads')
-      fs.mkdirSync(path.dirname(outDir), { recursive: true })
+      const outDir = path.resolve(projectRoot, 'dist', 'uploads')
+      fs.mkdirSync(outDir, { recursive: true })
       fs.cpSync(uploadsDir, outDir, { recursive: true })
     },
   }
 }
 
 export default defineConfig({
-  plugins: [react(), wpUploadsPlugin()],
-  base: '/',   // matches your current path
+  plugins: [react(), uploadsPlugin()],
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -95,8 +97,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })
