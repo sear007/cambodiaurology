@@ -33,9 +33,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy CSV to dist
-        run: cp src/data/publications.csv dist/data/publications.csv 2>/dev/null || mkdir -p dist/data && cp src/data/publications.csv dist/data/
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

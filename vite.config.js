@@ -87,7 +87,7 @@ function wpUploadsPlugin() {
 
 export default defineConfig({
   plugins: [react(), wpUploadsPlugin()],
-  base: '/cambodiaurology/',   // matches your current path
+  base: '/',   // matches your current path
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
