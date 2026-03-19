@@ -56,7 +56,12 @@ export const CATEGORIES = [
 export function getImageUrl(imagePath) {
   if (!imagePath) return null
 
-  const cleanedPath = String(imagePath).replace(/^\/+/, '')
+  const cleanedPath = String(imagePath)
+    .trim()
+    .replace(/^https?:\/\/[^/]+/i, '')
+    .replace(/^\/?wp-content\/uploads\//i, 'uploads/')
+    .replace(/^\/+/, '')
+
   return `${BASE}${cleanedPath}`
 }
 

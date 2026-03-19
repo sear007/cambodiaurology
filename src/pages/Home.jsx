@@ -179,7 +179,7 @@ export default function Home() {
         />
         <meta property="og:title" content="Home - Cambodia Urology Center" />
         <meta property="og:description" content="UROLOGY Specialist. Providing Expert Care for Urinary & Reproductive Health." />
-        <meta property="og:image" content={`${BASE}wp-content/uploads/2025/04/dr-ouk-reaksmey.jpg`} />
+        <meta property="og:image" content={`${BASE}uploads/2025/04/dr-ouk-reaksmey.jpg`} />
       </Helmet>
 
       <Navbar transparent />
@@ -187,7 +187,7 @@ export default function Home() {
       <section
         id="home"
         className="hero-masthead"
-        style={{ backgroundImage: `url(${BASE}wp-content/uploads/2025/04/dr-ouk-reaksmey.jpg)` }}
+        style={{ backgroundImage: `url(${BASE}uploads/2025/04/dr-ouk-reaksmey.jpg)` }}
       >
         <div className="container">
           <div className="hero-content hero-content-animated">
@@ -234,7 +234,7 @@ export default function Home() {
       <section className="expertise-section">
         <div
           className="expertise-image"
-          style={{ backgroundImage: `url(${BASE}wp-content/uploads/2025/04/image-2.png)` }}
+          style={{ backgroundImage: `url(${BASE}uploads/2025/04/image-2.png)` }}
           role="img"
           aria-label="Dr. Ouk Reaksmey expertise"
         />
@@ -312,7 +312,7 @@ export default function Home() {
             {[1, 2, 3, 4].map((n) => (
               <img
                 key={n}
-                src={`${BASE}wp-content/uploads/2020/05/${n}.png`}
+                src={`${BASE}uploads/2020/05/${n}.png`}
                 alt={`Partner ${n}`}
                 loading="lazy"
               />

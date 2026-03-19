@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const BASE = import.meta.env.BASE_URL
-const LOGO = `${BASE}wp-content/uploads/2025/04/logo-300x106.png`
+const LOGO = `${BASE}uploads/2025/04/logo-300x106.png`
 
 export default function Navbar({ transparent = false }) {
   const [scrolled, setScrolled] = useState(false)
