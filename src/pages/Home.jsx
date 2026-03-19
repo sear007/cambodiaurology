@@ -177,6 +177,7 @@ export default function Home() {
           name="description"
           content="UROLOGY Specialist. Providing Expert Care for Urinary & Reproductive Health. Trust Your Urological Health to Experts - Dr. Ouk Reaksmey."
         />
+        <link rel="canonical" href="https://cambodiaurologycenter.com/" />
         <meta property="og:title" content="Home - Cambodia Urology Center" />
         <meta property="og:description" content="UROLOGY Specialist. Providing Expert Care for Urinary & Reproductive Health." />
         <meta property="og:image" content={`${BASE}uploads/2025/04/dr-ouk-reaksmey.jpg`} />

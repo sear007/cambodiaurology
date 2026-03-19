@@ -69,7 +69,7 @@ export default function PublicationDetail() {
         <meta property="og:description" content={pub.content_preview?.slice(0, 155) || ''} />
         {imgUrl && <meta property="og:image" content={imgUrl} />}
         <meta property="og:type" content="article" />
-        <link rel="canonical" href={`https://cambodiaurologycenter.com/cambodiaurology/${pub.slug}/`} />
+        <link rel="canonical" href={`https://cambodiaurologycenter.com/publication/${pub.slug}`} />
       </Helmet>
 
       <Navbar solid />
